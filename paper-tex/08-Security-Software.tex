@@ -38,7 +38,7 @@
 %% used to denote shared contribution to the research.
 \author{Finn Hoedt}
 \authornote{Alle Studierenden trugen zu gleichen Teilen zu dieser Arbeit bei.}
-\author{Maurice Putzger}
+\author{Maurice Raymond Putzger}
 \authornotemark[1]
 \author{Bastian Wecke}
 \authornotemark[1]
@@ -88,6 +88,91 @@ Abschließend ...
 \section{(Hauptteil mit ggf. mehreren Sections)}
 
 (der Hauptteil umfasst typischerweise ca. 2/3 bis 3/4 des Texts der Arbeit.)
+
+\subsection{Herausforderungen}
+In der modernen Softwareentwicklung finden agile Methoden wie Scrum zunehmende Anwendung.
+Diese Vorgehensweisen versprechen in der Regel eine gesteigerte Produktivität, bessere Produktqualität sowie eine erhöhte Kundenzufriedenheit. 
+Sie zeichnen sich insbesondere durch häufige Änderungen der Anforderungen und kontinuierliche Releases aus.
+Sicherheitsaspekte sind allerdings in den gängigen agilen Praktiken nicht systematisch verankert. Das erschwert die Entwicklung sicherer Software. \cite{oueslati_literature_2015}
+
+Im Folgenden werden die wesentlichen Herausforderungen bei der Integration von Sicherheitsanforderungen in agile Entwicklungsprozesse erläutert. 
+
+Die Probleme erstrecken sich über verschiedene Phasen des Software Development Life Cycle (SDLC).
+Ein zentrales Prinzip agiler Methoden ist die kontinuierliche Lieferung von Software. 
+Das bedeutet, dass in jeder Iteration sämtliche SDLC-Aktivitäten durchlaufen werden müssen.
+Das beinhaltet alle sicherheitsrelevanten Praktiken. 
+Da Iterationen jedoch oft nur wenige Wochen umfassen, ist es schwierig, zeitintensive Sicherheitsmaßnahmen in diesen kurzen Zyklen durchzuführen. \cite{oueslati_literature_2015}
+
+Darüber hinaus resultieren weitere Herausforderungen aus dem inkrementellen Vorgehen sowie dem Streben nach technischer Exzellenz. 
+Das wird in agilen Methoden unter anderem durch häufiges Refactoring verwirklicht. 
+Die Refactorings können jedoch bestehende Sicherheitsanforderungen versehentlich verletzen. 
+Zusätzlich führt die hohe Priorität, kurzfristige Kundenwünsche umzusetzen, zu Designänderungen.
+Diese können bestehende Sicherheitsvorgaben brechen und erschweren Sicherheitsmaßnahmen wie Code Reviews. \cite{oueslati_literature_2015}
+
+Ein weiterer Problembereich betrifft die Qualität der Dokumentation.
+Nach den agilen Werten hat funktionierende Software Vorrang gegenüber umfassender Dokumentation. 
+Diese Herangehensweise kann zu lückenhafter oder unvollständiger Dokumentation führen.
+Sicherheitskonzepte erfordern aber in der Regel eine detaillierte und verlässliche Dokumentationsbasis.
+Tests decken zudem häufig nur die Funktionalität ab und überprüfen somit primär positive Anforderungen.
+Sicherheit hingegen umfasst zumeist negative Anforderungen, bei denen es darum geht, Fehlverhalten oder Schwachstellen zu erkennen.
+Da klassische Akzeptanztests hierfür nur bedingt geeignet sind, bleiben potenzielle Sicherheitslücken oft verborgen. \cite{oueslati_literature_2015}
+
+Des Weiteren entsteht ein Konflikt im Hinblick auf Audits. 
+Agile Methoden sehen einen kontinuierlichen Verbesserungsprozess des Entwicklungsprozesses vor. 
+Audits hingegen verlangen meist einen stabilen, über längere Zeiträume unveränderten Prozess. 
+Dadurch wird Nachvollziehbarkeit und Vergleichbarkeit gewährleistet.
+Dies erschwert die Einhaltung auditrelevanter Standards in hochflexiblen agilen Umgebungen. \cite{oueslati_literature_2015}
+
+Das Sicherheitsbewusstsein und die Zusammenarbeit innerhalb des Teams stellen eine weitere Herausforderung dar.
+Der Projektfortschritt wird in agilen Prozessen vorwiegend an funktionsfähiger Software gemessen.
+Dadurch rücken Sicherheitsaspekte in den Hintergrund. 
+Darüber hinaus wird empfohlen, sicherheitstechnische Bewertungen unabhängig von den Entwicklerteams durchzuführen. 
+Somit wird der Einfluss sozialer Beziehungen auf die Ergebnisse vermieden.
+Dies steht jedoch im Widerspruch zu den agilen Prinzipien, die auf enger Kooperation und fortlaufendem Austausch basieren. \cite{oueslati_literature_2015}
+
+Schließlich hat auch das Sicherheitsmanagement mit den kurzen Iterationen und dem Fokus auf die Bereitstellung neuer Funktionalitäten zu kämpfen. 
+Umfangreiche Sicherheitsaktivitäten erhöhen die Entwicklungskosten und erfordern zusätzliche Ressourcen.
+Dazu kommt, dass die Sicherheitsmaßnahmen häufig nicht für die laufende Anwendung erforderlich sind.
+In vielen Fällen wird daher zugunsten schnellerer Releases auf umfassende Sicherheitsmaßnahmen verzichtet. \cite{oueslati_literature_2015}
+ 
+
+\subsection{Static Application Security Testing (SAST)}
+SAST-Werkzeuge führen eine ''White-Box''-Analyse durch, bei der der Quellcode direkt auf potenzielle Sicherheitslücken untersucht wird.
+Die Anwendung muss hierfür nicht ausgeführt werden. 
+Durch die frühzeitige Erkennung von Sicherheitslücken in der Entwicklungsphase tragen SAST-Tools maßgeblich dazu bei, potenzielle Schwachstellen proaktiv zu beheben. 
+Typische Beispiele für SAST-Werkzeuge sind Fortify SCA und FindSecurityBugs. \cite{mateo_tudela_combining_2020}
+
+
+\subsection{Dynamic Application Security Testing (DAST)}
+DAST-Werkzeuge folgen einem ''Black-Box''-Ansatz, da sie Angriffe von außen auf die laufende Anwendung simulieren.
+Auf diese Weise lassen sich Sicherheitslücken identifizieren, die erst während der Laufzeit auftreten. DAST-Tools untersuchen primär Schnittstellen einer ausgeführten Anwendung und erfordern keine Kenntnisse über den zugrunde liegenden Quellcode. 
+Daher sind sie in der Regel unabhängig von der verwendeten Programmiersprache. 
+Bekannte Beispiele für DAST-Werkzeuge sind OWASP ZAP und Arachni. \cite{mateo_tudela_combining_2020}
+
+\subsection{Interactive Application Security Testing (IAST}
+IAST wird, ähnlich wie SAST, dem ''White-Box''-Ansatz zugeordnet, kombiniert jedoch Elemente aus SAST und DAST zu einem hybriden Verfahren. 
+Dabei überwachen und analysieren die IAST-Werkzeuge den Quellcode während der Ausführung, was eine präzise Sicherheitsprüfung anhand realer Laufzeitinformationen ermöglicht. 
+IAST-Werkzeuge sind direkt auf dem Server integriert sind, weshalb sie mit der jeweiligen Programmiersprache kompatibel sein müssen. 
+Da sie ausschließlich serverseitige Analysen durchführen, sind sie nicht in der Lage, clientseitige Sicherheitslücken aufzudecken. Bekannte Beispiele für IAST-Werkzeuge sind Contrast und CxIAST. \cite{mateo_tudela_combining_2020}
+
+
+
+\subsection{Effektivität von Application Security Testing}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/AST_Comparison.png}
+	\caption{Scrum4Safety Prozess}
+	\label{fig:astCompare}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{images/AST_Comparison_Combination.png}
+	\caption{Scrum4Safety Prozess}
+	\label{fig:astCompareCompination}
+\end{figure}
 
 \subsection{Scrum4Safety}
 
