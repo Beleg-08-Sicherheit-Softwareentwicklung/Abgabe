@@ -306,3 +306,6 @@ TSWLatexianTemp*
 #*Notes.bib
 
 .DS_Store
+
+.vscode/
+Dockerfile

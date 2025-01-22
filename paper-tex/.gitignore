@@ -4,3 +4,6 @@
 *.bbl
 *.blg
 beleg.pdf
+
+.vscode/
+Dockerfile
