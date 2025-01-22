@@ -1,0 +1,22 @@
+\section{Grundlagen}
+
+Im Folgenden werden Begriffe zu den Themen Sicherheit und Shift-Left in der Softwareentwicklung erklärt, um somit eine grundlegende Wissensbasis für die danach folgenden Kapitel zu schaffen.
+
+Als \textit{sichere Software} definieren wir solche, die den grundlegenden Prinzipien der Informationssicherheit \cite{blakley_information_2001} entspricht und auch trotz verschiedener Widrigkeiten in ihrer Funktionalität zuverlässig bleibt \cite{oueslati_literature_2015}. Diese Prinzipien werden in folgende Kategorien unterteilt:
+\begin{enumerate}
+    \item \textbf{Vertraulichkeit} beschreibt den Schutz sensibler Daten vor unbefugtem Zugriff.
+    \item \textbf{Integrität} stellt sicher, dass die Daten konsistent und unverändert bleiben, außer sie werden bewusst durch autorisierte Nutzer verändert.
+    \item \textbf{Verfügbarkeit} garantiert, dass die Software und ihre genutzten Daten und Ressourcen stets zugänglich sind. Die Verfügbarkeit muss auch unter gezielten Angriffen gewährleistet werden.
+    \item \textbf{Zuverlässigkeit} ist ein System dann, wenn es sich zu jedem Zeitpunkt erwartungsgemäß verhält. Dies gilt ebenfalls unter etwaigen Widrigkeiten, wie beispielsweise unbefugten Zugriffen von außen.
+\end{enumerate}
+Diese vier Prinzipien bilden die Grundlage für sichere Software und müssen somit bei der Entwicklung von sicherheitskritischen Prozessen gezielt beachtet werden.\
+
+Der \textit{Shift-Left} Ansatz beschreibt das Verschieben von Prozeduren bzw. Aktivitäten aus späteren Phasen des Software Development Life Cycle in Frühere \cite{andriadi_impact_2023}. An einer zeitlichen Achse, wie sie in der Abbildung \ref{fig:shiftleft} zu sehen ist, kann man die Verschiebung nach Links erkennen. Die Abbildung zeigt, wie der Fokus von der Softwarequalität von einem späteren Zeitpunkt in einen Früheren verlagert wird. Dieses Vorgehen ist schon länger bekannt, doch der Name Shift-Left wurde durch \textcite{smith_shift-left_2001} geprägt. Dieser sprach 2001 vom \textit{Shift-Left Testing} und erklärte, dass durch das frühere Testen in der Softwareentwicklung die Qualität der Software gesteigert und die Kosten von Fehlern gesenkt werden könne \cite{dawoud_better_2024}. Dafür müssten Quality Assurance (QA) und Entwickler parallel arbeiten, was zur Folge hätte, dass das QA-Team 1. nicht auf die Entwicklung warten muss und 2. entdeckte Fehler bereits während der Entwicklung direkt wieder beseitigt werden können \cite{andriadi_impact_2023}. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.9\linewidth]{images/Shift_Left.png}
+    \caption{Shift-Left Verschiebung von Fokus auf Qualität im Software Development Life Cycle}
+    \label{fig:shiftleft}
+  \end{figure}
+
