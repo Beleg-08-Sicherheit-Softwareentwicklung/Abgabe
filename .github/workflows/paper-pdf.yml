@@ -20,6 +20,6 @@ jobs:
       - name: Add & Commit
         uses: EndBug/add-and-commit@v9.1.4
         with:
-          add: "./08-Security-Software.pdf"
+          add: "./08-Security-Software.pdf -f"
           default_author: github_actions
           message: Add paper PDF built with GitHub Actions
