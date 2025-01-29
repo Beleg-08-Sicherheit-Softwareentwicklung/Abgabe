@@ -174,9 +174,9 @@ Da sie ausschließlich serverseitige Analysen durchführen, sind sie nicht in de
 	\label{fig:astCompareCompination}
 \end{figure}
 
-\subsection{Scrum4Safety}
+\subsection{Scrum for Safety}
 
-Scrum4Safety zielt darauf ab, die Innovationsfähigkeit und Effizienz agiler Methoden mit den strengen Anforderungen an Sicherheit und Konformität zu vereinen. 
+\textit{Scrum for Safety} zielt darauf ab, die Innovationsfähigkeit und Effizienz agiler Methoden mit den strengen Anforderungen an Sicherheit und Konformität zu vereinen. 
 Zu diesem Zweck führt es spezifische Rollen, Prinzipien und Workflows ein, um die Qualität und Sicherheit der zu entwickelnden Software zu gewährleisten. 
 Das Framework erweitert die klassischen Scrum-Rollen um zusätzliche Rollen, die in sicherheitskritischen Projekten erforderlich sind. \cite{barbareschi_scrum_2022} Dazu zählen: 
 
@@ -189,30 +189,81 @@ Das Framework erweitert die klassischen Scrum-Rollen um zusätzliche Rollen, die
 Die zusätzlichen Rollen sind dafür zuständig, 
 die Unabhängigkeit der Prüfprozesse zu gewährleisten und die Erfüllung der Anforderungen an die Softwarequalität sicherzustellen. \cite{barbareschi_scrum_2022}
 
-Neben der Integration zusätzlicher Rollen werden im Rahmen von Scrum4Safety auch neue Konzepte eingeführt, die darauf abzielen, die Sicherheit der Softwareentwicklung zu gewährleisten. 
+Neben der Integration zusätzlicher Rollen werden im Rahmen von \textit{Scrum for Safety} auch neue Konzepte eingeführt, die darauf abzielen, die Sicherheit der Softwareentwicklung zu gewährleisten. 
 Hierzu zählt das Sprint-Hardening, dessen Zielsetzung darin besteht, die Bereitstellung einer validierten Softwareversion am Ende jeder Iteration sicherzustellen. In jeder Iteration wird demnach darauf geachtet, 
 dass Benutzerdokumentationen und Konformitätsnachweise erstellt werden, die dann für die externe Softwarebewertung verwendet werden können. \cite{barbareschi_scrum_2022}
 Ein weiteres Konzept ist die Continuous Compliance. Das beinhaltet die kontinuierliche Durchführung von Verifizierungs- und Validierungsaktivitäten, sodass die Software jederzeit konform ist. 
 Das Ziel dieses Ansatzes ist die frühzeitige Erkennung und Behebung kritischer Fehler. \cite{barbareschi_scrum_2022} Das dritte Konzept ist die Living Traceability.
 Die Einführung einer klaren Rückverfolgbarkeit in jedem Prozess bei der Umsetzung von Benutzeranforderungen zielt darauf ab, die Zertifizierung der Software durch externe Prüftstellen zu erleichtern. \cite{barbareschi_scrum_2022}
 
-Der zentrale Prozess in Scrum4Safety wird als Safe-Sprint bezeichnet. In Anlehnung an das klassische Scrum-Prinzip stellt der Safe-Sprint eine zeitlich begrenzte Iteration dar, in der ein neues Software-Inkrement entwickelt wird. 
+Der zentrale Prozess in \textit{Scrum for Safety} wird als Safe-Sprint bezeichnet. In Anlehnung an das klassische Scrum-Prinzip stellt der Safe-Sprint eine zeitlich begrenzte Iteration dar, in der ein neues Software-Inkrement entwickelt wird. 
 Im Gegensatz zum klassischen Scrum wird dabei sichergestellt, dass das entwickelte Inkrement durch die eingeführten Konzepte sicherheitstechnisch validiert ist. \cite{barbareschi_scrum_2022}
-Scrum4Safety setzt zu diesem Zweck bereits in der Planungsphase mit dem Safe-Sprint an und integriert Safety-Stories neben den klassischen User-Stories in den Backlog.
+\textit{Scrum4Safety} setzt zu diesem Zweck bereits in der Planungsphase mit dem Safe-Sprint an und integriert Safety-Stories neben den klassischen User-Stories in den Backlog.
 Das Ziel dieser Vorgehensweise ist die Gewährleistung der Berücksichtigung von Sicherheit bereits in der Anforderungsphase. 
 Eine weitere Maßnahme zur Sicherstellung der Berücksichtigung von Sicherheit in der Anforderungsphase ist die frühzeitige Einbindung von Sicherheitsüberprüfungen und Testphasen im Ablauf des Safe-Sprints. \cite{barbareschi_scrum_2022}
 
-In sicherheitskritischen Projekten nimmt die Dokumentation eine zentrale Rolle ein. Aus diesem Grund wird in den Ablauf eines Safe-Sprints eine spezielle Dokumentationsphase integriert (siehe Abbildung \ref{fig:scrum4safety}). 
+In sicherheitskritischen Projekten nimmt die Dokumentation eine zentrale Rolle ein. Aus diesem Grund wird in den Ablauf eines Safe-Sprints eine Dokumentationsphase integriert (siehe Abbildung \ref{fig:scrum4safety}). 
 Dabei wird Dokumentation nicht als Haupttreiber des Prozesses betrachtet, sondern als Resultat jeder Iteration. \cite{barbareschi_scrum_2022}
 Das Ziel besteht darin, unnötigen Dokumentationsaufwand zu vermeiden und ausschließlich die für die Zertifizierung erforderlichen Dokumente zu erstellen. 
-Scrum4Safety schlägt zur Erstellung von Dokumentationen zusätzlich noch automatisierte Tools vor, wie Doxygen oder IBM DOORS, um Dokumente automatisch aus dem Code zu generieren und den Aufwand zusätzlich zu minimieren. \cite{barbareschi_scrum_2022}
+\textit{Scrum for Safety} schlägt zur Erstellung von Dokumentationen zusätzlich noch automatisierte Tools vor, wie Doxygen oder IBM DOORS, um Dokumente automatisch aus dem Code zu generieren und den Aufwand zusätzlich zu minimieren. \cite{barbareschi_scrum_2022}
+
+Im Rahmen der Evaluierung von \textit{Scrum for Safety} wurde eine Fallstudie mit Rete Ferroviaria Italiana (RFI) durchgeführt. Gegenstand der Fallstudie war die Entwicklung einer sicheren Middleware für die Kommunikation zwischen Eisenbahnsignalsystemen. 
+Die Herausforderung bestand darin, bestehende Hardware und Protokolle zu unterstützen, um eine nahtlose Integration in vorhandene Systeme zu gewährleisten. Ein weiterer Aspekt, den es zu berücksichtigen galt, 
+war die Sicherstellung der Zuverlässigkeit und Sicherheit der Systeme, um potenzielle Gefahrenquellen zu minimieren und die Einhaltung gesetzlicher Vorgaben sowie branchenspezifischer Richtlinien zu gewährleisten. Die Fallstudie ergab, 
+dass die Integration umfangreicher Sicherheitsmaßnahmen in kurze Iterationen eine Herausforderung darstellte. \cite{barbareschi_scrum_2022}
+Aus diesem Grund wurde die Länge der Iterationen auf vier Wochen erweitert, wobei etwa 75 \% der Sprintzeit für Verifikation und Validierung verwendet wurde.Dies zeigte sich insbesondere bei der Fehlererkennung, 
+da die implementierten Sicherheitsmaßnahmen maßgeblich dazu beitrugen, Fehler frühzeitig zu erkennen und zu beheben. 
+Die Implementierung von Dokumentationsmaßnahmen trug ebenfalls zur Nachvollziehbarkeit der Entwicklungsaktivitäten bei und erleichterte dadurch die Zertifizierung durch externe Prüfstellen. \cite{barbareschi_scrum_2022}
 
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{images/S4S-Safe-Sprint.png}
-  \caption{Scrum4Safety Prozess}
+  \caption{Scrum for Safety Prozess}
   \label{fig:scrum4safety}
 \end{figure}
+
+\subsection{Security Standard Compliant Scaled Agile Framework}
+
+\textit{$S^2$C-SAFe} ist ein Framework, das auf dem \textit{Scaled Agile Framework (SAFe)} basiert und speziell für sicherheitskritische Projekte entwickelt wurde. 
+Dafür erweitert es das klassische SAFe um Sicherheitsanforderungen aus dem Standard IEC 62443-4-1, der Richtlinien für die sichere Produktentwicklung
+in industriellen Umgebungen. \cite{moyon_how_2020} Das Ziel ist es, agile Entwicklungsprozesse mit Sicherheitsstandards zu verbinden und dadurch eine kontinuierliche Sicherheitsüberprüfung zu gewährleisten (siehe Abbildung \ref{fig:s2c}), ohne 
+die Flexibilität und Geschwindigkeit der Entwicklung zu beeinträchtigen. \cite{moyon_how_2020}
+
+\textit{$S^2$C-SAFe} implementiert das Konzept \textbf{Continuous Security}, dessen Ziel die Integration von Sicherheit als fundamentalem Aspekt in sämtliche Prozesse ist. 
+Ziel ist es, Sicherheit von einer nicht-funktionalen Anforderung zu einer integralen Komponente der Softwareentwicklung zu machen.
+Dieses wird bereits in der Planungsphase implementiert, in welcher Sicherheitsanforderungen systematisch in den Backlog integriert werden (siehe Abbildung \ref{fig:s2c}). \cite{moyon_how_2020} 
+Hierbei werden Product Owner und Systemarchitekten gezielt in Sicherheitsaspekte eingebunden und entsprechend geschult, um von Anfang an ein hohes Sicherheitsbewusstsein zu gewährleisten. 
+In der Implementierungsphase werden die Sicherheitsanforderungen durch teamübergreifende Coding-Standards umgesetzt und als fester Bestandteil in die Definition of Done integriert. 
+Dies gewährleistet, dass Sicherheitsaspekte bei jeder Entwicklung berücksichtigt werden. \cite{moyon_how_2020}
+Die Qualitätssicherung erfolgt durch dedizierte Verifikations- und Validierungsmaßnahmen, die von unabhängigen Security Experts durchgeführt werden. 
+Ein wesentliches Merkmal des Continuous Security Ansatzes ist dabei die kontinuierliche Durchführung expliziter Sicherheitsanforderungen und Tests, wodurch Sicherheitsmaßnahmen nicht als einmaliger Check, 
+sondern als fortlaufender Prozess verstanden werden. \cite{moyon_how_2020}
+
+\textit{$S^2$C-SAFe} wurde in einer Fallstudie bei Siemens getestet, welche dann durch Interviews mit 16 Experten aus dem Siemens-Umfeld evaluiert wurde.
+Die Experten stammen aus verschiedenen Bereichen, darunter Sicherheitsstandards, agile Entwicklung und Compliance. Aus den Interview ergab sich, dass das Framework als praktikabel angesehen wird,
+um die Diskrepanz zwischen agilen Methoden und Sicherheitsanforderungen zu überbrücken. Zudem erwies sich die Visualisierung der Prozesse, welche bei der Entwicklung von \textit{$S^2$C-SAFe} erstellt wurden, als hilfreich, 
+um eine gemeinsame Sprache zwischen Sicherheits- und Entwicklungsteams zu schaffen. Neben den Vorteilen, die das Framework für die Integration von Sicherheitsanforderungen in agile Prozesse bietet, blieben jedoch auch Herausforderungen bestehen.
+Gerade die fehlende Sicherheitsexpertise in agilen Teams führte zu Schwierigkeiten bei der Umsetzung von Sicherheitsanforderungen. Dies zeigte siche bei der Priorisierung von Sicherheitsanforderungen, wobei oft unklar war, 
+welche Sicherheitsmaßnahmen am dringendsten umgesetzt werden sollten. Auch die unterschiedliche Interpretation von Sicherheitsanforderungen durch Entwickler und Sicherheitsexperten stellte eine Herausforderung dar, was zu Missverständnissen und Fehlern führen könnte. Als Lösung schlagen die Autoren vor,
+spezielle Rollen wie einen Security Product Owner oder einen Secure System Architect einzuführen, um die Kommunikation zwischen den Teams zu verbessern und die Umsetzung von Sicherheitsanforderungen zu erleichtern. 
+Eine weitere Herausforderung war die Komplexität der Sicherheitsanforderungen, da die Integration der Maßnahmen in die kurzen Entwicklungszyklen herausfordernd war. 
+
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.9\linewidth]{images/S2C.png}
+  \caption{Security Standard Compliant Scaled Agile Framework}
+  \label{fig:s2c}
+\end{figure}
+
+
+
+
+
+
+
+
 
 
 
