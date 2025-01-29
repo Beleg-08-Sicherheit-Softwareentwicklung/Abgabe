@@ -174,7 +174,9 @@ Da sie ausschließlich serverseitige Analysen durchführen, sind sie nicht in de
 	\label{fig:astCompareCompination}
 \end{figure}
 
-\subsection{Scrum for Safety}
+\subsection{Frameworks zur Integration von Sicherheit in agile Prozesse}
+
+\subsubsection{Scrum for Safety}
 
 \textit{Scrum for Safety} zielt darauf ab, die Innovationsfähigkeit und Effizienz agiler Methoden mit den strengen Anforderungen an Sicherheit und Konformität zu vereinen. 
 Zu diesem Zweck führt es spezifische Rollen, Prinzipien und Workflows ein, um die Qualität und Sicherheit der zu entwickelnden Software zu gewährleisten. 
@@ -215,6 +217,10 @@ Aus diesem Grund wurde die Länge der Iterationen auf vier Wochen erweitert, wob
 da die implementierten Sicherheitsmaßnahmen maßgeblich dazu beitrugen, Fehler frühzeitig zu erkennen und zu beheben. 
 Die Implementierung von Dokumentationsmaßnahmen trug ebenfalls zur Nachvollziehbarkeit der Entwicklungsaktivitäten bei und erleichterte dadurch die Zertifizierung durch externe Prüfstellen. \cite{barbareschi_scrum_2022}
 
+Insgesamt zeigt die Fallstudie, dass \textit{Scrum for Safety} eine praktikable Lösung bietet, um Sicherheitsanforderungen in agile Entwicklungsprozesse zu integrieren.
+Die notwendigen Verifikations- und Validierungsmaßnahmen führen zwar zu einer reduzierten Entwicklungsgeschwindigkeit, jedoch bietet das Framework ein solides Grundgerüst, um Sicherheit als zentrales
+Konzept in der agilen Entwicklung zu verankern. \cite{barbareschi_scrum_2022}
+
 \begin{figure}
   \centering
   \includegraphics[width=0.9\linewidth]{images/S4S-Safe-Sprint.png}
@@ -222,11 +228,11 @@ Die Implementierung von Dokumentationsmaßnahmen trug ebenfalls zur Nachvollzieh
   \label{fig:scrum4safety}
 \end{figure}
 
-\subsection{Security Standard Compliant Scaled Agile Framework}
+\subsubsection{Security Standard Compliant Scaled Agile Framework}
 
-\textit{$S^2$C-SAFe} ist ein Framework, das auf dem \textit{Scaled Agile Framework (SAFe)} basiert und speziell für sicherheitskritische Projekte entwickelt wurde. 
+\textit{$S^2$C-SAFe} ist ein Framework, das auf dem \textit{Scaled Agile Framework (SAFe)} basiert und speziell für sicherheitskritische Projekte in regulatorischen Bereichen entwickelt wurde. 
 Dafür erweitert es das klassische SAFe um Sicherheitsanforderungen aus dem Standard IEC 62443-4-1, der Richtlinien für die sichere Produktentwicklung
-in industriellen Umgebungen. \cite{moyon_how_2020} Das Ziel ist es, agile Entwicklungsprozesse mit Sicherheitsstandards zu verbinden und dadurch eine kontinuierliche Sicherheitsüberprüfung zu gewährleisten (siehe Abbildung \ref{fig:s2c}), ohne 
+in industriellen Umgebungen, weshalb es sich für den Gebrauch in großen Entwicklungsteams eignet. \cite{moyon_how_2020} Das Ziel ist es, agile Entwicklungsprozesse mit Sicherheitsstandards zu verbinden und dadurch eine kontinuierliche Sicherheitsüberprüfung zu gewährleisten (siehe Abbildung \ref{fig:s2c}), ohne 
 die Flexibilität und Geschwindigkeit der Entwicklung zu beeinträchtigen. \cite{moyon_how_2020}
 
 \textit{$S^2$C-SAFe} implementiert das Konzept \textbf{Continuous Security}, dessen Ziel die Integration von Sicherheit als fundamentalem Aspekt in sämtliche Prozesse ist. 
@@ -239,15 +245,23 @@ Die Qualitätssicherung erfolgt durch dedizierte Verifikations- und Validierungs
 Ein wesentliches Merkmal des Continuous Security Ansatzes ist dabei die kontinuierliche Durchführung expliziter Sicherheitsanforderungen und Tests, wodurch Sicherheitsmaßnahmen nicht als einmaliger Check, 
 sondern als fortlaufender Prozess verstanden werden. \cite{moyon_how_2020}
 
-\textit{$S^2$C-SAFe} wurde in einer Fallstudie bei Siemens getestet, welche dann durch Interviews mit 16 Experten aus dem Siemens-Umfeld evaluiert wurde.
-Die Experten stammen aus verschiedenen Bereichen, darunter Sicherheitsstandards, agile Entwicklung und Compliance. Aus den Interview ergab sich, dass das Framework als praktikabel angesehen wird,
-um die Diskrepanz zwischen agilen Methoden und Sicherheitsanforderungen zu überbrücken. Zudem erwies sich die Visualisierung der Prozesse, welche bei der Entwicklung von \textit{$S^2$C-SAFe} erstellt wurden, als hilfreich, 
-um eine gemeinsame Sprache zwischen Sicherheits- und Entwicklungsteams zu schaffen. Neben den Vorteilen, die das Framework für die Integration von Sicherheitsanforderungen in agile Prozesse bietet, blieben jedoch auch Herausforderungen bestehen.
-Gerade die fehlende Sicherheitsexpertise in agilen Teams führte zu Schwierigkeiten bei der Umsetzung von Sicherheitsanforderungen. Dies zeigte siche bei der Priorisierung von Sicherheitsanforderungen, wobei oft unklar war, 
-welche Sicherheitsmaßnahmen am dringendsten umgesetzt werden sollten. Auch die unterschiedliche Interpretation von Sicherheitsanforderungen durch Entwickler und Sicherheitsexperten stellte eine Herausforderung dar, was zu Missverständnissen und Fehlern führen könnte. Als Lösung schlagen die Autoren vor,
-spezielle Rollen wie einen Security Product Owner oder einen Secure System Architect einzuführen, um die Kommunikation zwischen den Teams zu verbessern und die Umsetzung von Sicherheitsanforderungen zu erleichtern. 
-Eine weitere Herausforderung war die Komplexität der Sicherheitsanforderungen, da die Integration der Maßnahmen in die kurzen Entwicklungszyklen herausfordernd war. 
+Im Rahmen einer Fallstudie wurde \textit{$S^2$C-SAFe} bei Siemens getestet und im Anschluss anhand von Interviews mit 16 Experten aus dem Siemens-Umfeld evaluiert.
+Die Experten stammen aus verschiedenen Bereichen, darunter Sicherheitsstandards, agile Entwicklung und Compliance. Die Auswertung der Interviews ergab, 
+dass das Framework als praktikabel angesehen wird, um die Diskrepanz zwischen agilen Methoden und Sicherheitsanforderungen zu überbrücken. \cite{moyon_how_2020} 
+Darüber hinaus wurde die Visualisierung der Prozesse, die im Rahmen der Entwicklung von \textit{$S^2$C-SAFe} erstellt wurden, als hilfreich erachtet, 
+um eine gemeinsame Sprache zwischen den Teams für Sicherheit und Entwicklung zu etablieren. \cite{moyon_how_2020} 
+Trotz der Vorteile, die das Framework für die Integration von Sicherheitsanforderungen in agile Prozesse bietet, sind jedoch auch Herausforderungen zu verzeichnen.
+Insbesondere die mangelnde Sicherheitsexpertise innerhalb der agilen Teams führte zu Schwierigkeiten bei der Implementierung der Sicherheitsanforderungen. 
+Dies zeigte sich insbesondere bei der Priorisierung von Sicherheitsanforderungen, wobei häufig unklar war, welche Sicherheitsmaßnahmen am dringendsten umgesetzt werden sollten. \cite{moyon_how_2020} 
+Darüber hinaus erschwerte die unterschiedliche Interpretation von Sicherheitsanforderungen durch Entwickler und Sicherheitsexperten das Prozessmanagement und könnte zu Missverständnissen und Fehlern führen. 
+Die Autoren schlagen daher die Einführung spezifischer Rollen wie eines Security Product Owner oder eines Secure System Architect vor, 
+um die Kommunikation zwischen den Teams zu optimieren und die Umsetzung von Sicherheitsanforderungen zu erleichtern. \cite{moyon_how_2020}
+Eine weitere Herausforderung stellt die Komplexität der Sicherheitsanforderungen dar, da die Integration der Maßnahmen in die kurzen Entwicklungszyklen als herausforderd zu bewerten ist. \cite{moyon_how_2020}
 
+Zusammenfassend lässt sich feststellen, dass \textit{$S^2$C-SAFe} eine praktikable Lösung bietet, um Sicherheitsanforderungen in großen agilen Entwicklungsprojekten zu integrieren.
+Es hilft, die Kluft zwischen agilen Methoden und regulatorischen Anforderungen zu überbrücken und fördert die Zusammenarbeit zwischen Sicherheits- und Entwicklungsteams. \cite{moyon_how_2020}
+Die implementierung von kontinuierlichen Sicherheitsmaßnahmen in die Prozesse der Softwareentwicklung wird durch die Anwendung der Konzepte aus dem \textit{Shift-Left}-Ansatzes im Framework unterstützt,
+wodurch Sicherheitsaspekte von Beginn an in den Entwicklungszyklus integriert werden.
 
 
 \begin{figure}
