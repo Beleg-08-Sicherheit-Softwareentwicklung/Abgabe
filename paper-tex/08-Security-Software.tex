@@ -105,6 +105,7 @@ In den kommenden Kapiteln werden konkrete Ideen, Modelle und Tools zum Shift-Lef
 
  
 \subsection{Application Security Testing (AST)}
+
 Im Rahmen von Shift-Left-Ansätzen wird angestrebt, Test- und Qualitätssicherungsmaßnahmen möglichst früh in den Softwareentwicklungsprozess einzubinden.
 Besonders im Bereich sicherheitsrelevanter Tests erweist sich diese Strategie als äußerst effektiv, da Schwachstellen auf diese Weise bereits in frühen Phasen entdeckt und behoben werden können.
 Automatisierte Verfahren spielen dabei eine große Rolle, da sie sich nahtlos in bestehende CI/CD-Pipelines integrieren lassen. \cite{}
@@ -113,10 +114,11 @@ Unter diesem Begriff werden verschiedene Methoden zusammengefasst, die auf die I
 In den folgenden Abschnitten werden drei wesentliche AST-Methoden näher betrachtet.
 
 \subsubsection{Static Application Security Testing (SAST)}
+
 Static Application Security Testing (SAST) Werkzeuge führen eine White-Box-Analyse durch, bei der der Quellcode direkt auf potenzielle Sicherheitslücken untersucht wird.
 Die Ausführung der Anwendung ist dafür nicht erforderlich.
 Diese Analyse erlaubt frühzeitige Erkennung von Sicherheitslücken in der Entwicklungsphase. 
-Daher tragen SAST-Tools dazu bei, potenzielle Schwachstellen proaktiv zu beheben. 
+Daher tragen SAST-Tools dazu bei, potenzielle Schwachstellen proaktiv zu beheben.  \cite{mateo_tudela_combining_2020}
 Im Gegensatz zur dynamischen Analyse kann SAST auch hard-to-reach States erfassen, also Codepfade, die während der Laufzeit nur selten oder unter speziellen Bedingungen auftreten.
 SAST-Werkzeuge arbeiten mit vordefinierten Regeln und Mustern, um typische Schwachstellen wie Pufferüberläufe, unsichere API-Nutzung oder unzureichende Eingabevalidierung zu erkennen.
 Dabei kommen unterschiedliche methodische Ansätze zum Einsatz, die von einfachen Pattern-Matches bis hin zu komplexen, semantischen Codeanalysen mithilfe von Abstract Syntax Trees (ASTs) reichen.
@@ -125,6 +127,7 @@ Zudem neigen sie vergleichsweise häufig zu falsche Positiv- oder Negativmeldung
 Daher sollten sie als ergänzende Sicherheitsmaßnahme in Kombination mit anderen Tests eingesetzt werden. \cite{chess_static_2004}
 
 \subsubsection{Dynamic Application Security Testing (DAST)}
+
 Dynamic Application Security Testing (DAST) basiert auf einer Black-Box-Analyse, bei der Angriffe auf eine laufende Anwendung simuliert werden. 
 Dadurch lassen sich insbesondere Sicherheitslücken identifizieren, die erst während der Ausführung auftreten.
 Durch das gezielte Senden von Payloads wird überprüft, inwieweit eine Anwendung Angriffen wie Cross-Site Scripting (XSS) oder SQL Injection (SQLi) standhält.
@@ -143,6 +146,7 @@ Nachdem die Tools konfiguriert und das Zielsystem festgelegt wurde, umfassen die
 
 
 \subsubsection{Interactive Application Security Testing (IAST)}
+
 Interactive Application Security Testing (IAST) wird ähnlich wie SAST, dem White-Box-Ansatz zugeordnet. 
 Es kombiniert jedoch die Vorteile aus SAST und DAST zu einem hybriden Verfahren.
 Dabei überwachen und analysieren IAST-Werkzeuge den Quellcode während der Laufzeit, wodurch eine präzisere Sicherheitsbewertung auf Basis realer Laufzeitinformationen ermöglicht wird. \cite{mateo_tudela_combining_2020}
@@ -154,8 +158,9 @@ Allerdings ist IAST auf serverseitige Analysen beschränkt und kann daher keine 
 
 
 \subsection{Effektivität von Application Security Testing}
+
 Es stellt sich die Frage, in welchem Umfang die Methoden SAST, DAST und IAST tatsächlich bei der Identifizierung von Sicherheitslücken unterstützen.
-Ein Artikel aus dem Jahr 2020 befasste sich mit der Effizienz dieser Verfahren und untersuchte, welche Kombination die besten Ergebnisse liefert. \cite{mateo_tudela_combining_2020}
+Der Artikel \citet{mateo_tudela_combining_2020} befasste sich mit der Effizienz dieser Verfahren und untersuchte, welche Kombination die besten Ergebnisse liefert.
 
 Als Testgrundlage diente das OWASP Benchmark Project, eine in Java geschriebene Open-Source-Webanwendung, die auf Apache Tomcat läuft.
 Dieses Projekt enthält schwerwiegende Sicherheitslücken entsprechend den OWASP Top 10 von 2013 und 2017.
