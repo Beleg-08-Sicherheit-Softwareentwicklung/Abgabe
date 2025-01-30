@@ -141,42 +141,133 @@ In vielen Fällen wird daher zugunsten schnellerer Releases auf umfassende Siche
  
 
 \subsection{Static Application Security Testing (SAST)}
-SAST-Werkzeuge führen eine ''White-Box''-Analyse durch, bei der der Quellcode direkt auf potenzielle Sicherheitslücken untersucht wird.
-Die Anwendung muss hierfür nicht ausgeführt werden. 
-Durch die frühzeitige Erkennung von Sicherheitslücken in der Entwicklungsphase tragen SAST-Tools maßgeblich dazu bei, potenzielle Schwachstellen proaktiv zu beheben. 
-Typische Beispiele für SAST-Werkzeuge sind Fortify SCA und FindSecurityBugs. \cite{mateo_tudela_combining_2020}
+Static Application Security Testing (SAST) Werkzeuge führen eine White-Box-Analyse durch, bei der der Quellcode direkt auf potenzielle Sicherheitslücken untersucht wird.
+Die Ausführung der Anwendung ist dafür nicht erforderlich.
+Diese Analyse erlaubt frühzeitige Erkennung von Sicherheitslücken in der Entwicklungsphase. 
+Daher tragen SAST-Tools dazu bei, potenzielle Schwachstellen proaktiv zu beheben. 
+Im Gegensatz zur dynamischen Analyse kann SAST auch hard-to-reach States erfassen, also Codepfade, die während der Laufzeit nur selten oder unter speziellen Bedingungen auftreten.
+SAST-Werkzeuge arbeiten mit vordefinierten Regeln und Mustern, um typische Schwachstellen wie Pufferüberläufe, unsichere API-Nutzung oder unzureichende Eingabevalidierung zu erkennen.
+Dabei kommen unterschiedliche methodische Ansätze zum Einsatz, die von einfachen Pattern-Matches bis hin zu komplexen, semantischen Codeanalysen mithilfe von Abstract Syntax Trees (ASTs) reichen.
+Ein wesentlicher Nachteil von SAST-Tools besteht darin, dass sie ausschließlich Schwachstellen aufdecken können, für die entsprechende Erkennungsmuster existieren.
+Zudem neigen sie vergleichsweise häufig zu falsche Positiv- oder Negativmeldungen.
+Daher sollten sie als ergänzende Sicherheitsmaßnahme in Kombination mit anderen Tests eingesetzt werden. \cite{chess_static_2004}
 
 
 \subsection{Dynamic Application Security Testing (DAST)}
-DAST-Werkzeuge folgen einem ''Black-Box''-Ansatz, da sie Angriffe von außen auf die laufende Anwendung simulieren.
-Auf diese Weise lassen sich Sicherheitslücken identifizieren, die erst während der Laufzeit auftreten. DAST-Tools untersuchen primär Schnittstellen einer ausgeführten Anwendung und erfordern keine Kenntnisse über den zugrunde liegenden Quellcode. 
-Daher sind sie in der Regel unabhängig von der verwendeten Programmiersprache. 
-Bekannte Beispiele für DAST-Werkzeuge sind OWASP ZAP und Arachni. \cite{mateo_tudela_combining_2020}
+Dynamic Application Security Testing (DAST) basiert auf einer Black-Box-Analyse, bei der Angriffe auf eine laufende Anwendung simuliert werden. 
+Dadurch lassen sich insbesondere Sicherheitslücken identifizieren, die erst während der Ausführung auftreten.
+Durch das gezielte Senden von Payloads wird überprüft, inwieweit eine Anwendung Angriffen wie Cross-Site Scripting (XSS) oder SQL Injection (SQLi) standhält.
+Im Gegensatz zu SAST werden somit reale Angriffszenarien erfasst. \cite{}
 
-\subsection{Interactive Application Security Testing (IAST}
-IAST wird, ähnlich wie SAST, dem ''White-Box''-Ansatz zugeordnet, kombiniert jedoch Elemente aus SAST und DAST zu einem hybriden Verfahren. 
-Dabei überwachen und analysieren die IAST-Werkzeuge den Quellcode während der Ausführung, was eine präzise Sicherheitsprüfung anhand realer Laufzeitinformationen ermöglicht. 
-IAST-Werkzeuge sind direkt auf dem Server integriert sind, weshalb sie mit der jeweiligen Programmiersprache kompatibel sein müssen. 
-Da sie ausschließlich serverseitige Analysen durchführen, sind sie nicht in der Lage, clientseitige Sicherheitslücken aufzudecken. Bekannte Beispiele für IAST-Werkzeuge sind Contrast und CxIAST. \cite{mateo_tudela_combining_2020}
+Ein wesentlicher Vorteil von DAST besteht darin, dass die eingesetzten Werkzeuge keine Kenntnisse über den Quellcode benötigen und damit unabhängig von der verwendeten Programmiersprache sind.
+Allerdings lassen sich DAST-Verfahren erst in späteren Phasen des SDLC einsetzen, da eine lauffähige Anwendung vorausgesetzt wird.
+Nachdem die Tools konfiguriert und das Zielsystem festgelegt wurde, umfassen die typischen Schritte einer DAST-Analyse: \cite{singh_analysis_2024}
 
+\begin{itemize}
+	\item \textbf{Crawling}: Die DAST-Tools simulieren Nutzerinteraktionen mit der Anwendung und crawlen durch deren Seiten und Funktionen. Dabei identifizieren sie sämtliche Ein- und Ausgabepunkte, um die Struktur der Anwendung zu erfassen.
+	\item \textbf{Simulation von Angriffen}: Die Tools generieren schadhafte Payloads (Command Injection oder Reflected XSS) und senden diese an die zuvor entdeckten Eingabepunkte.
+	\item \textbf{Identifizierung von Schwachstellen}: Die Responses der Anwendung werden analysiert, um Schwachstellen wie unsichere Sicherheitskonfigurationen oder mangelhafte Eingabevalidierungen zu entdecken.
+	\item \textbf{Berichterstattung}: Abschließend wird ein detaillierter Report der erkannten Sicherheitslücken erstellt, der häufig auch Informationen zu potenziellen Gegenmaßnahmen sowie den Schweregrad der jeweiligen Schwachstelle enthält.
+\end{itemize}
+
+
+\subsection{Interactive Application Security Testing (IAST)}
+Interactive Application Security Testing (IAST) wird ähnlich wie SAST, dem White-Box-Ansatz zugeordnet. 
+Es kombiniert jedoch die Vorteile aus SAST und DAST zu einem hybriden Verfahren.
+Dabei überwachen und analysieren IAST-Werkzeuge den Quellcode während der Laufzeit, wodurch eine präzisere Sicherheitsbewertung auf Basis realer Laufzeitinformationen ermöglicht wird. \cite{mateo_tudela_combining_2020}
+
+Im Gegensatz zu rein statischen oder dynamischen Testmethoden bietet IAST eine kontextbezogene Analyse, da es sowohl die Quellcode-Struktur als auch das tatsächliche Laufzeitverhalten der Anwendung berücksichtigt. 
+Dies führt zu einer höheren Genauigkeit bei der Erkennung von Schwachstellen.
+IAST-Werkzeuge sind direkt auf dem Server integriert und müssen daher mit der jeweiligen Programmiersprache kompatibel sein.
+Allerdings ist IAST auf serverseitige Analysen beschränkt und kann daher keine clientseitigen Schwachstellen, aufdecken. \cite{pan_interactive_2019}
 
 
 \subsection{Effektivität von Application Security Testing}
+Es stellt sich die Frage, in welchem Umfang die Methoden SAST, DAST und IAST tatsächlich bei der Identifizierung von Sicherheitslücken unterstützen.
+Ein Artikel aus dem Jahr 2020 befasste sich mit der Effizienz dieser Verfahren und untersuchte, welche Kombination die besten Ergebnisse liefert. \cite{mateo_tudela_combining_2020}
+
+Als Testgrundlage diente das OWASP Benchmark Project, eine in Java geschriebene Open-Source-Webanwendung, die auf Apache Tomcat läuft.
+Dieses Projekt enthält schwerwiegende Sicherheitslücken entsprechend den OWASP Top 10 von 2013 und 2017.
+Insgesamt umfasst die Anwendung 320 Testfälle, von denen die Hälfte keine echten Schwachstellen sind. \cite{mateo_tudela_combining_2020}
+
+In der Studie kamen drei Open-Source- und drei kommerzielle AST-Tools zum Einsatz: \cite{mateo_tudela_combining_2020}
+
+\begin{itemize}
+	\item SAST: Fortify SCA und FindSecurityBugs
+	\item DAST: OWASP ZAP und Arachni
+	\item Contrast Community Edition und CxIAST
+\end{itemize}
+
+
+Zur Bewertung der Verfahren wurden etablierte Metriken herangezogen. 
+True Positives (TP) bezeichnen tatsächliche Schwachstellen, die auch gefunden wurden, False Positives (FP) sind fälschlicherweise erkannte Sicherheitslücken, und False Negatives (FN) reale Schwachstellen, die übersehen wurden. 
+Auf Basis dieser Werte lassen sich verschiedene Kennzahlen berechnen:
+\cite{mateo_tudela_combining_2020}
+
+\begin{itemize}
+	\item \textbf{Recall}: Anteil der tatsächlich vorhandenen Schwachstellen, die korrekt erkannt werden.
+	\item \textbf{Precision}: Verhältnis der korrekt erkannten Schwachstellen (TP) zu allen gemeldeten Schwachstellen (TP + FP).
+	\item \textbf{True Positive Rate (TPR)}: Verhältnis der gefundenen zu allen existierenden Schwachstellen.
+	\item \textbf{False Positive Rate (FPR)}: Verhältnis der falsch erkannten Schwachstellen (FP) zu allen nicht vorhandenen Schwachstellen (TN).
+	\item \textbf{F-Measure}: Harmonischer Mittelwert von Precision und Recall.
+	\item \textbf{F$_{\text{ß}}$-Score}: Spezifische Variante der F-Measure, bei der das Verhältnis zwischen Recall und Precision über ß unterschiedlich gewichtet wird. 
+	Dabei legt ${\text{ß} = 0,5}$ mehr Gewicht auf Precision, während ${\text{ß} = 1,5}$ den Recall stärker berücksichtigt.
+	\item \textbf{Markedness}: Verhältnis der positiven Vorhersagen unter Berücksichtigung von FP und FN.
+	\item \textbf{Informedness}: Betrachtung aller positiven und negativen Fälle. Jeder erkannte Schwachstellen (TP) erhöht diesen Wert um ${1/P}$ (wobei
+	${P}$ die Anzahl positiver Fälle ist), während jeder nicht entdeckte Fall (FN) den Wert um ${1/N}$ eduziert (wobei N die Anzahl negativer Fälle ist).
+\end{itemize}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{images/AST_Comparison.png}
-	\caption{AST Vergleich ohne Kombination}
+	\caption{AST Vergleich ohne Kombination \cite{mateo_tudela_combining_2020}}
 	\label{fig:astCompare}
 \end{figure}
 
+In Abbildung \ref{fig:astCompare} wird die Effektivität bei der Erkennung der OWASP-Top-10-Schwachstellen für jeden AST-Typ ohne Kombination dargestellt.
+IAST-Tools erzielen hier in allen Metriken die besten Werte.
+Sie nähern sich dem Idealwert (1) an und weisen gleichzeitig die niedrigste FPR (0) auf.
+SAST-Tools liefern ein insgesamt gutes Ergebnis, verzeichnen jedoch einen relativ hohen FPR-Wert von etwa 0,60.
+Im Vergleich dazu schneiden DAST-Tools bei der FPR deutlich besser ab, weisen jedoch nur einen geringen Recall von circa 0,20 auf.
+Die Kombination aus niedrigem Recall und vergleichsweise hohem TPR resultiert in einer hohen Precision (ca. 0,90).
+\cite{mateo_tudela_combining_2020}
+
+Daraus lässt sich ableiten, dass eine Kombination aus DAST und SAST potenziell bessere Resultate liefern könnte.
+Eine Verbindung aus SAST und IAST würde zwar die TPR weiter erhöhen, jedoch auch mehr FP erzeugen.
+Eine Kombination aus IAST und DAST würde von der niedrigen FPR seitens DAST profitieren.
+\cite{mateo_tudela_combining_2020}
 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=0.9\linewidth]{images/AST_Comparison_Combination.png}
-	\caption{AST Vergleich mit Kombination}
+	\caption{AST Vergleich mit Kombination \cite{mateo_tudela_combining_2020}}
 	\label{fig:astCompareCompination}
 \end{figure}
+
+Im nächsten Schritt wurden verschiedene Zweier- und anschließend Dreierkombinationen untersucht, wie in Abbildung \ref{fig:astCompareCompination} ersichtlich.
+Die Dreierkombinationen liefern ähnliche Ergebnisse wie die Zweierkombinationen.
+Am besten schnitt eine Kombination aus zwei IAST-Tools und einem DAST-Tool ab, gefolgt von einer Kombination aus einem IAST-Tool und zwei DAST-Tools.
+Beide Konfigurationen erreichen sehr gute Werte für Recall und TPR (zwischen 0,95 und 1). 
+Die übrigen Kombinationen verzeichnen eine höhere FPR und somit in den anderen Metriken niedrigere Werte.
+\cite{mateo_tudela_combining_2020}
+
+Welche Kombination für ein Unternehmen die beste Wahl darstellt, hängt stark von dem Sicherheitskritischem Level der jeweiligen Anwendung ab.
+Der Artikel differenziert hier zwischen hoher, mittlerer und niedriger Sicherheitskritikalität der Anwendungen.
+\cite{mateo_tudela_combining_2020}
+
+Für Webanwendungen, die als hochkritisch eingestuft werden und hochsensible Daten verarbeiten, empfiehlt es sich, jeden Alarm im Detail zu untersuchen. Bei der Wahl der AST-Tools sollte daher der Fokus auf einem hohen TPR liegen. 
+False Positives müssen dabei in Kauf genommen werden, um möglichst alle Schwachstellen zu identifizieren.
+In mittelkritischen Umgebungen sollte neben einer hohen TPR vor allem auf eine hohe Precision geachtet werden.
+Es soll ein Übermaß an FP vermieden werden, um den Aufwand für nachgelagerte Analysen zu reduzieren.
+Bei niedrigkritischen Webanwendungen, in denen keine oder nur gering empfindliche Daten verarbeitet werden, ist eine hohe TPR bei gleichzeitig geringer FPR anzustreben. 
+Es ist akzeptabel, dass nicht jede potenzielle Schwachstelle entdeckt wird, solange der Zeit- und Ressourcenaufwand für die Prüfung von Fehlalarmen möglichst gering bleibt.
+Somit ist ein hoher Markedness-Score eine hilfreiche Orientierungsgröße.
+\cite{mateo_tudela_combining_2020}
+
+Insgesamt wird durch die Ergebnisse des Artikels verdeutlicht, dass der Einsatz und die gezielte Kombination von AST-Tools eine äußerst effektive Methode zur Identifizierung von Sicherheitslücken ist.
+Insbesondere IAST-Tools liefern hervorragende Resultate und nehmen damit eine große Rolle bei der automatisierten Schwachstellenerkennung ein.
+Sie unterstützen sowohl Entwickler als auch Unternehmen maßgeblich dabei, sichere Software zu erstellen. 
+\cite{mateo_tudela_combining_2020}
 
 \subsection{Frameworks zur Integration von Sicherheit in agile Prozesse}
 
