@@ -80,17 +80,18 @@
 
 \section{Einleitung und Motivation}
 
-(Beschreibung von Kontext, Problemen, Anforderungen und Zielen) 
+In der modernen Softwareentwicklung finden agile Methoden wie Scrum zunehmend Anwendung.
+Häufig wird dabei ein Zusammenhang zwischen gesteigerter Produktivität, verbesserter Produktqualität und erhöhter Kundenzufriedenheit hergestellt. 
+Ein wesentliches Merkmal dieser Methoden ist die hohe Flexibilität, die durch häufige Änderungen der Anforderungen und kontinuierliche Releases charakterisiert ist.
+Jedoch ist zu kritisieren, dass Sicherheitsaspekte in den gängigen agilen Praktiken nicht systematisch verankert sind. \cite{nagele_current_2023} Dies erschwert die Entwicklung sicherer Software. \cite{oueslati_literature_2015}
+Die in der Regel nur wenige Wochen umfassenden Iterationen in agilen Prozessen lassen die Durchführung zeitintensiver Sicherheitsmaßnahmen in diesen kurzen Zyklen nicht zu. 
+Dies führt zu erhöhten Entwicklungskosten und dem Bedarf zusätzlicher Ressourcen. In vielen Fällen wird daher zugunsten schnellerer Releases auf umfassende Sicherheitsmaßnahmen verzichtet. \cite{oueslati_literature_2015} 
+Gegenstand der vorliegenden Arbeit ist demnach die Untersuchung des Einsatzes des Shift-Left-Ansatzes in Bezug auf Sicherheit in agilen Prozessen.
 
-
-
-(kurze Zusammenfassung der Struktur der Belegarbeit)
-
-Diese Arbeit ist folgendermaßen strukturiert. 
-In Kapitel ... 
-...
-...
-Abschließend ...
+Zu diesem Zweck werden zunächst die Grundlagen des Shift-Left-Ansatzes erläutert und die verschiedenen Arten von Shift-Left-Praktiken vorgestellt und deren Wirksamkeit dargelegt.
+Im Anschluss werden konkrete Tools und Frameworks zur Integration von Sicherheit in agile Prozesse präsentiert und deren Ergebnisse in der praktischen Anwendung analysiert.
+Ziel ist es, Handlungsmöglichkeiten für die Integration von Shift-Left-Praktiken aufzuzeigen und die Wirksamkeit dieser Ansätze zu bewerten. 
+Ein besonderes Augenmerk gilt dabei den Herausforderungen bei der Integration von Sicherheitsmaßnahmen in agile Prozesse und den diskutierten Lösungsansätzen.
 
 \input{Grundlagen}
 
@@ -102,51 +103,6 @@ In den kommenden Kapiteln werden konkrete Ideen, Modelle und Tools zum Shift-Lef
 
 \input{Shift_Left_Wirksamkeit}
 
-\subsection{Herausforderungen}
-In der modernen Softwareentwicklung finden agile Methoden wie Scrum zunehmende Anwendung.
-Diese Vorgehensweisen versprechen in der Regel eine gesteigerte Produktivität, bessere Produktqualität sowie eine erhöhte Kundenzufriedenheit. 
-Sie zeichnen sich insbesondere durch häufige Änderungen der Anforderungen und kontinuierliche Releases aus.
-Sicherheitsaspekte sind allerdings in den gängigen agilen Praktiken nicht systematisch verankert. Das erschwert die Entwicklung sicherer Software. \cite{oueslati_literature_2015}
-
-Im Folgenden werden die wesentlichen Herausforderungen bei der Integration von Sicherheitsanforderungen in agile Entwicklungsprozesse erläutert. 
-
-Die Probleme erstrecken sich über verschiedene Phasen des Software Development Life Cycle (SDLC).
-Ein zentrales Prinzip agiler Methoden ist die kontinuierliche Lieferung von Software. 
-Das bedeutet, dass in jeder Iteration sämtliche SDLC-Aktivitäten durchlaufen werden müssen.
-Das beinhaltet alle sicherheitsrelevanten Praktiken. 
-Da Iterationen jedoch oft nur wenige Wochen umfassen, ist es schwierig, zeitintensive Sicherheitsmaßnahmen in diesen kurzen Zyklen durchzuführen. \cite{oueslati_literature_2015}
-
-Darüber hinaus resultieren weitere Herausforderungen aus dem inkrementellen Vorgehen sowie dem Streben nach technischer Exzellenz. 
-Das wird in agilen Methoden unter anderem durch häufiges Refactoring verwirklicht. 
-Die Refactorings können jedoch bestehende Sicherheitsanforderungen versehentlich verletzen. 
-Zusätzlich führt die hohe Priorität, kurzfristige Kundenwünsche umzusetzen, zu Designänderungen.
-Diese können bestehende Sicherheitsvorgaben brechen und erschweren Sicherheitsmaßnahmen wie Code Reviews. \cite{oueslati_literature_2015}
-
-Ein weiterer Problembereich betrifft die Qualität der Dokumentation.
-Nach den agilen Werten hat funktionierende Software Vorrang gegenüber umfassender Dokumentation. 
-Diese Herangehensweise kann zu lückenhafter oder unvollständiger Dokumentation führen.
-Sicherheitskonzepte erfordern aber in der Regel eine detaillierte und verlässliche Dokumentationsbasis.
-Tests decken zudem häufig nur die Funktionalität ab und überprüfen somit primär positive Anforderungen.
-Sicherheit hingegen umfasst zumeist negative Anforderungen, bei denen es darum geht, Fehlverhalten oder Schwachstellen zu erkennen.
-Da klassische Akzeptanztests hierfür nur bedingt geeignet sind, bleiben potenzielle Sicherheitslücken oft verborgen. \cite{oueslati_literature_2015}
-
-Des Weiteren entsteht ein Konflikt im Hinblick auf Audits. 
-Agile Methoden sehen einen kontinuierlichen Verbesserungsprozess des Entwicklungsprozesses vor. 
-Audits hingegen verlangen meist einen stabilen, über längere Zeiträume unveränderten Prozess. 
-Dadurch wird Nachvollziehbarkeit und Vergleichbarkeit gewährleistet.
-Dies erschwert die Einhaltung auditrelevanter Standards in hochflexiblen agilen Umgebungen. \cite{oueslati_literature_2015}
-
-Das Sicherheitsbewusstsein und die Zusammenarbeit innerhalb des Teams stellen eine weitere Herausforderung dar.
-Der Projektfortschritt wird in agilen Prozessen vorwiegend an funktionsfähiger Software gemessen.
-Dadurch rücken Sicherheitsaspekte in den Hintergrund. 
-Darüber hinaus wird empfohlen, sicherheitstechnische Bewertungen unabhängig von den Entwicklerteams durchzuführen. 
-Somit wird der Einfluss sozialer Beziehungen auf die Ergebnisse vermieden.
-Dies steht jedoch im Widerspruch zu den agilen Prinzipien, die auf enger Kooperation und fortlaufendem Austausch basieren. \cite{oueslati_literature_2015}
-
-Schließlich hat auch das Sicherheitsmanagement mit den kurzen Iterationen und dem Fokus auf die Bereitstellung neuer Funktionalitäten zu kämpfen. 
-Umfangreiche Sicherheitsaktivitäten erhöhen die Entwicklungskosten und erfordern zusätzliche Ressourcen.
-Dazu kommt, dass die Sicherheitsmaßnahmen häufig nicht für die laufende Anwendung erforderlich sind.
-In vielen Fällen wird daher zugunsten schnellerer Releases auf umfassende Sicherheitsmaßnahmen verzichtet. \cite{oueslati_literature_2015}
  
 \subsection{Application Security Testing (AST)}
 Im Rahmen von Shift-Left-Ansätzen wird angestrebt, Test- und Qualitätssicherungsmaßnahmen möglichst früh in den Softwareentwicklungsprozess einzubinden.
@@ -438,7 +394,7 @@ Zukünftig ist zu erwarten, dass diese Konzepte weiter optimiert werden, um ihre
 %% If your work has an appendix, this is the place to put it.
 \appendix
 
-\section{Anhang 1}
+
 
 
 
