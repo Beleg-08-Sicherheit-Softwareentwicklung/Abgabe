@@ -139,8 +139,15 @@ Umfangreiche Sicherheitsaktivitäten erhöhen die Entwicklungskosten und erforde
 Dazu kommt, dass die Sicherheitsmaßnahmen häufig nicht für die laufende Anwendung erforderlich sind.
 In vielen Fällen wird daher zugunsten schnellerer Releases auf umfassende Sicherheitsmaßnahmen verzichtet. \cite{oueslati_literature_2015}
  
+\subsection{Application Security Testing (AST)}
+Im Rahmen von Shift-Left-Ansätzen wird angestrebt, Test- und Qualitätssicherungsmaßnahmen möglichst früh in den Softwareentwicklungsprozess einzubinden.
+Besonders im Bereich sicherheitsrelevanter Tests erweist sich diese Strategie als äußerst effektiv, da Schwachstellen auf diese Weise bereits in frühen Phasen entdeckt und behoben werden können.
+Automatisierte Verfahren spielen dabei eine große Rolle, da sie sich nahtlos in bestehende CI/CD-Pipelines integrieren lassen. 
+Eine wesentliche Komponente in diesem Kontext stellt das Application Security Testing (AST) dar. 
+Unter diesem Begriff werden verschiedene Methoden zusammengefasst, die auf die Identifizierung von Sicherheitslücken in Softwareanwendungen abzielen.
+In den folgenden Abschnitten werden drei wesentliche AST-Methoden näher betrachtet.
 
-\subsection{Static Application Security Testing (SAST)}
+\subsubsection{Static Application Security Testing (SAST)}
 Static Application Security Testing (SAST) Werkzeuge führen eine White-Box-Analyse durch, bei der der Quellcode direkt auf potenzielle Sicherheitslücken untersucht wird.
 Die Ausführung der Anwendung ist dafür nicht erforderlich.
 Diese Analyse erlaubt frühzeitige Erkennung von Sicherheitslücken in der Entwicklungsphase. 
@@ -152,26 +159,25 @@ Ein wesentlicher Nachteil von SAST-Tools besteht darin, dass sie ausschließlich
 Zudem neigen sie vergleichsweise häufig zu falsche Positiv- oder Negativmeldungen.
 Daher sollten sie als ergänzende Sicherheitsmaßnahme in Kombination mit anderen Tests eingesetzt werden. \cite{chess_static_2004}
 
-
-\subsection{Dynamic Application Security Testing (DAST)}
+\subsubsection{Dynamic Application Security Testing (DAST)}
 Dynamic Application Security Testing (DAST) basiert auf einer Black-Box-Analyse, bei der Angriffe auf eine laufende Anwendung simuliert werden. 
 Dadurch lassen sich insbesondere Sicherheitslücken identifizieren, die erst während der Ausführung auftreten.
 Durch das gezielte Senden von Payloads wird überprüft, inwieweit eine Anwendung Angriffen wie Cross-Site Scripting (XSS) oder SQL Injection (SQLi) standhält.
-Im Gegensatz zu SAST werden somit reale Angriffszenarien erfasst. \cite{}
+Im Gegensatz zu SAST werden somit reale Angriffszenarien erfasst. \cite{singh_analysis_2024}
 
 Ein wesentlicher Vorteil von DAST besteht darin, dass die eingesetzten Werkzeuge keine Kenntnisse über den Quellcode benötigen und damit unabhängig von der verwendeten Programmiersprache sind.
 Allerdings lassen sich DAST-Verfahren erst in späteren Phasen des SDLC einsetzen, da eine lauffähige Anwendung vorausgesetzt wird.
 Nachdem die Tools konfiguriert und das Zielsystem festgelegt wurde, umfassen die typischen Schritte einer DAST-Analyse: \cite{singh_analysis_2024}
 
-\begin{itemize}
+\begin{enumerate}
 	\item \textbf{Crawling}: Die DAST-Tools simulieren Nutzerinteraktionen mit der Anwendung und crawlen durch deren Seiten und Funktionen. Dabei identifizieren sie sämtliche Ein- und Ausgabepunkte, um die Struktur der Anwendung zu erfassen.
 	\item \textbf{Simulation von Angriffen}: Die Tools generieren schadhafte Payloads (Command Injection oder Reflected XSS) und senden diese an die zuvor entdeckten Eingabepunkte.
 	\item \textbf{Identifizierung von Schwachstellen}: Die Responses der Anwendung werden analysiert, um Schwachstellen wie unsichere Sicherheitskonfigurationen oder mangelhafte Eingabevalidierungen zu entdecken.
 	\item \textbf{Berichterstattung}: Abschließend wird ein detaillierter Report der erkannten Sicherheitslücken erstellt, der häufig auch Informationen zu potenziellen Gegenmaßnahmen sowie den Schweregrad der jeweiligen Schwachstelle enthält.
-\end{itemize}
+\end{enumerate}
 
 
-\subsection{Interactive Application Security Testing (IAST)}
+\subsubsection{Interactive Application Security Testing (IAST)}
 Interactive Application Security Testing (IAST) wird ähnlich wie SAST, dem White-Box-Ansatz zugeordnet. 
 Es kombiniert jedoch die Vorteile aus SAST und DAST zu einem hybriden Verfahren.
 Dabei überwachen und analysieren IAST-Werkzeuge den Quellcode während der Laufzeit, wodurch eine präzisere Sicherheitsbewertung auf Basis realer Laufzeitinformationen ermöglicht wird. \cite{mateo_tudela_combining_2020}
