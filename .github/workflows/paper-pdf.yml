@@ -1,6 +1,7 @@
 name: Paper PDF
 run-name: Build paper PDF from LaTeX source
-on: [push]
+on: 
+  workflow_dispatch:
 jobs:
   Build-PDF:
     runs-on: ubuntu-latest
