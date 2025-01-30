@@ -1,0 +1,11 @@
+= Sicherheitsaspekte in der (agilen) Softwareentwicklung
+
+Autoren:: Finn Hoedt, Bastian Wecke, Maurice Raymond Putzger
+
+Veranstaltung:: Modul “Software Engineering” (https://wse-research.org/team/anbo[Prof. Dr. Andreas Both], Wintersemester 2024/2025) an der https://www.htwk-leipzig.de/[HTWK Leipzig]
+
+Beleg:: link:08-Security-Software.pdf[Belegarbeit (PDF)], link:paper-tex/08-Security-Software.tex[Belegarbeit (LaTeX)]
+
+Präsentation:: link:08-Security-Software-Vortrag.pdf[Präsentation (PDF)]
+
+Kurzzusammenfassung::
